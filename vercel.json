@@ -1,0 +1,42 @@
+{
+  "rewrites": [
+    { "source": "/embed", "destination": "/embed.html" },
+    { "source": "/embed/", "destination": "/embed.html" },
+    { "source": "/((?!embed\\.html|test\\.html|test2\\.html|kinobox\\.js|kinobox\\.css|twixbox\\.css|twixbox\\.js|bytwixoff\\.js|titlename\\.js|.*\\.(css|js|png|jpg|ico|svg|woff2?|map)).*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
+      "source": "/embed.html",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "ALLOWALL" },
+        { "key": "Content-Security-Policy", "value": "frame-ancestors *" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/(kinobox|twixbox|bytwixoff)\\.(js|css)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/test.html",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/test2.html",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+/* =========================================
+   TWIXOFF STYLE - CYBERPUNK NEON PURPLE
+   Авторство: by Twixoff
+   ========================================= */
+
+:root {
+    --twix-primary: #8b5cf6;       /* Фиолетовый неон */
+    --twix-secondary: #ec4899;     /* Розовый неон */
+    --twix-bg: #0f0f13;            /* Глубокий темный фон */
+    --twix-panel: #18181b;         /* Цвет панелей */
+    --twix-text: #ffffff;
+    --twix-glow: 0 0 15px rgba(139, 92, 246, 0.5);
+    --twix-radius: 12px;
+}
+
+/* Общий сброс и шрифты для плеера */
+.kinobox-container, .kinobox-wrapper {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    background-color: var(--twix-bg) !important;
+    color: var(--twix-text) !important;
+}
+
+/* --- КНОПКИ ИСТОЧНИКОВ (ГЛАВНОЕ) --- */
+/* Сетка для кнопок */
+.kinobox-sources-list, .sources-grid, div[class*="sources"] {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+    gap: 12px !important;
+    padding: 15px !important;
+    background: rgba(24, 24, 27, 0.6) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: var(--twix-radius) !important;
+    margin-top: 10px !important;
+}
+
+/* Сами кнопки источников */
+.kinobox-source-btn, 
+.source-item, 
+button[class*="source"], 
+div[class*="source"][role="button"] {
+    background: linear-gradient(145deg, #27272a, #18181b) !important;
+    border: 2px solid transparent !important;
+    color: #d4d4d8 !important;
+    padding: 12px 16px !important;
+    border-radius: var(--twix-radius) !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    min-height: 45px !important;
+}
+
+/* Ховер эффект для кнопок */
+.kinobox-source-btn:hover, 
+.source-item:hover, 
+button[class*="source"]:hover, 
+div[class*="source"][role="button"]:hover {
+    border-color: var(--twix-primary) !important;
+    color: #fff !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4) !important;
+    background: linear-gradient(145deg, #3f3f46, #27272a) !important;
+}
+
+/* Активная кнопка (выбранный источник) */
+.kinobox-source-btn.active, 
+.source-item.active, 
+button[class*="source"].active, 
+div[class*="source"][role="button"].active {
+    background: linear-gradient(135deg, var(--twix-primary), var(--twix-secondary)) !important;
+    border-color: transparent !important;
+    color: #fff !important;
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.6) !important;
+    transform: scale(1.05) !important;
+}
+
+/* --- ЗАГОЛОВОК И МЕНЮ --- */
+.kinobox-header, header[class*="player"] {
+    background: linear-gradient(to right, rgba(15, 15, 19, 0.95), rgba(24, 24, 27, 0.9)) !important;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Логотип / Название */
+.kinobox-logo, .brand-name, span[class*="logo"] {
+    background: linear-gradient(to right, var(--twix-primary), var(--twix-secondary)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-weight: 800 !important;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.3) !important;
+}
+
+/* Кнопки управления (плей, пауза, фуллскрин) */
+button[class*="control"], .kinobox-controls button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s !important;
+}
+
+button[class*="control"]:hover, .kinobox-controls button:hover {
+    background: var(--twix-primary) !important;
+    box-shadow: 0 0 10px var(--twix-primary) !important;
+    border-color: var(--twix-primary) !important;
+}
+
+/* --- МОДАЛЬНЫЕ ОКНА И СПИСКИ --- */
+.kinobox-modal, div[class*="modal"], .settings-panel {
+    background: rgba(15, 15, 19, 0.95) !important;
+    border: 1px solid var(--twix-primary) !important;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 10px rgba(139, 92, 246, 0.2) !important;
+    border-radius: 16px !important;
+}
+
+/* Элементы списка внутри модалок */
+.kinobox-list-item, li[class*="item"], div[class*="list"] > div {
+    padding: 12px 15px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    transition: background 0.2s !important;
+    color: #e4e4e7 !important;
+}
+
+.kinobox-list-item:hover, li[class*="item"]:hover {
+    background: rgba(139, 92, 246, 0.15) !important;
+    color: #fff !important;
+    padding-left: 20px !important; /* Эффект сдвига */
+}
+
+/* --- СКРОЛЛБАРЫ (Кастомные) --- */
+::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+::-webkit-scrollbar-track {
+    background: #18181b !important;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--twix-primary), var(--twix-secondary)) !important;
+    border-radius: 4px !important;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #fff !important;
+}
+
+/* --- МОБИЛЬНАЯ АДАПТАЦИЯ --- */
+@media (max-width: 768px) {
+    .kinobox-sources-list, .sources-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 кнопки в ряд */
+        gap: 8px !important;
+        padding: 10px !important;
+    }
+    
+    .kinobox-source-btn, .source-item {
+        font-size: 12px !important;
+        padding: 10px 5px !important;
+        min-height: 40px !important;
+    }
+
+    .kinobox-controls button {
+        width: 35px !important;
+        height: 35px !important;
+    }
+}
+
+/* Принудительное скрытие старых стилей, если они мешают */
+[class*="kinobox"] * {
+    box-sizing: border-box !important;
+}
+
+/* ========== FORCE SIDE SOURCE LIST VISIBLE + PURPLE NEON ========== */
+.kbt_list,
+.kbt_list ul,
+[class*="kbt_list"],
+[class*="kinobox_menu"] ul {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  right: 0 !important;
+  transform: none !important;
+}
+
+/* Vertical source buttons (the numbered ones on the right) */
+.kbt_list li,
+.kbt_list ul li,
+[class*="kbt_list"] li,
+.kinobox_menu li,
+ul[class*="svelte"] li {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(236, 72, 153, 0.08)) !important;
+  color: #c4b5fd !important;
+  border: 1px solid rgba(139, 92, 246, 0.25) !important;
+  border-radius: 8px !important;
+  margin: 3px 4px !important;
+  padding: 8px 10px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  transition: 0.2s !important;
+  cursor: pointer !important;
+}
+
+.kbt_list li:hover,
+[class*="kbt_list"] li:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.35), rgba(236, 72, 153, 0.25)) !important;
+  color: #fff !important;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5) !important;
+}
+
+.kbt_list li.kinobox_menu_active,
+.kbt_list .kinobox_menu_active,
+li.kinobox_menu_active {
+  background: linear-gradient(135deg, #8b5cf6, #ec4899) !important;
+  color: #fff !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.7) !important;
+  border-color: transparent !important;
+}
+
+/* Make sure container doesn't clip the list */
+.kinobox_section,
+.kinobox_container,
+[class*="kinobox_section"],
+[class*="kinobox_container"] {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+/* ========== FORCE SOURCE LIST ALWAYS OPEN ========== */
+.kinobox_menu.kbt_list,
+.kbt_list,
+.kbt_list ul,
+.kinobox_menu ul {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  right: 0 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
+
+.kbt_list ul,
+.kinobox_menu.kbt_list ul {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  width: 150px !important;
+  z-index: 999 !important;
+  overflow-y: auto !important;
+  background: linear-gradient(180deg, #0f0a1f, #1a0f2e) !important;
+  border-left: 2px solid rgba(139, 92, 246, 0.4) !important;
+  padding: 6px 0 !important;
+}
+
+.kbt_list li,
+.kinobox_menu li {
+  display: block !important;
+  background: rgba(139, 92, 246, 0.12) !important;
+  color: #d8b4fe !important;
+  border-radius: 8px !important;
+  margin: 3px 6px !important;
+  padding: 9px 10px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+}
+
+.kbt_list li:hover { background: linear-gradient(135deg, #8b5cf6, #ec4899) !important; color: #fff !important; }
+.kbt_list .kinobox_menu_active,
+li.kinobox_menu_active {
+  background: linear-gradient(135deg, #8b5cf6, #ec4899) !important;
+  color: #fff !important;
+  box-shadow: 0 0 15px rgba(139,92,246,0.6) !important;
+}
+
+.kinobox_section, .kinobox_container { overflow: visible !important; position: relative !important; }

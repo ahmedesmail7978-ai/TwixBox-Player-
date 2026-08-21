@@ -1,0 +1,5 @@
+/embed    /embed.html   200
+/embed/   /embed.html   200
+/test     /test.html    200
+/test2    /test2.html   200
+/*        /index.html   200
