@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+:root {
+  --orange: #f2a33c;
+  --orange-deep: #d97f22;
+  --ct-blue: #6fb7e8;
+  --t-red: #e0453a;
+  --steel: #10161d;
+  --panel: #182029;
+  --line: #2b3844;
+  --text: #eae6dc;
+  --muted: #8b98a7;
+  --xh: #9dff57;
+}
+
+* { user-select: none; -webkit-user-select: none; }
+
+.font-display { font-family: 'Russo One', 'Rubik', sans-serif; }
+.font-body { font-family: 'Rubik', sans-serif; }
+
+/* ---------- keycaps ---------- */
+.key {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #dfe6ee;
+  background: linear-gradient(180deg, #232d38, #161e26);
+  border: 1px solid #38485a;
+  border-bottom-width: 3px;
+  border-radius: 5px;
+  padding: 3px 8px;
+  min-width: 26px;
+  text-align: center;
+  display: inline-block;
+  box-shadow: 0 1px 0 rgba(0,0,0,.6);
+}
+
+/* ---------- hazard stripes ---------- */
+.hazard {
+  background: repeating-linear-gradient(-45deg, #f2a33c 0 14px, #141a21 14px 28px);
+}
+.hazard-anim { animation: hazardMove 14s linear infinite; }
+@keyframes hazardMove { to { background-position: 396px 0; } }
+
+/* ---------- menu title ---------- */
+.title-glow { animation: titleGlow 2.6s ease-in-out infinite; }
+@keyframes titleGlow {
+  0%, 100% { text-shadow: 0 0 18px rgba(242,163,60,.28), 0 4px 0 #0a0e13, 0 10px 30px rgba(0,0,0,.8); }
+  50% { text-shadow: 0 0 42px rgba(242,163,60,.6), 0 4px 0 #0a0e13, 0 10px 30px rgba(0,0,0,.8); }
+}
+.menu-scan {
+  background: repeating-linear-gradient(0deg, rgba(255,255,255,.022) 0 1px, transparent 1px 3px);
+}
+.smoke {
+  background:
+    radial-gradient(60% 50% at 20% 85%, rgba(242,163,60,.10), transparent 70%),
+    radial-gradient(50% 40% at 85% 15%, rgba(111,183,232,.08), transparent 70%);
+  animation: smokeDrift 9s ease-in-out infinite alternate;
+}
+@keyframes smokeDrift { to { transform: translate3d(2%, -2%, 0) scale(1.06); } }
+
+/* ---------- buttons ---------- */
+.btn-blade {
+  font-family: 'Russo One', sans-serif;
+  letter-spacing: .14em;
+  transform: skewX(-8deg);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  box-shadow: 0 6px 0 rgba(0,0,0,.45), 0 10px 24px rgba(242,163,60,.18);
+}
+.btn-blade:hover { transform: skewX(-8deg) translateY(-2px); box-shadow: 0 8px 0 rgba(0,0,0,.45), 0 16px 34px rgba(242,163,60,.3); }
+.btn-blade:active { transform: skewX(-8deg) translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,.45); }
+
+/* ---------- crosshair ---------- */
+.xh { --g: 6px; }
+.xh span {
+  position: absolute; left: 50%; top: 50%;
+  background: var(--xh);
+  box-shadow: 0 0 3px rgba(0,0,0,.9);
+  transition: transform .06s linear;
+}
+.xh .xh-t { width: 2px; height: 10px; transform: translate(-50%, calc(-100% - var(--g))); }
+.xh .xh-b { width: 2px; height: 10px; transform: translate(-50%, var(--g)); }
+.xh .xh-l { width: 10px; height: 2px; transform: translate(calc(-100% - var(--g)), -50%); }
+.xh .xh-r { width: 10px; height: 2px; transform: translate(var(--g), -50%); }
+.xh .xh-dot { width: 2px; height: 2px; transform: translate(-50%, -50%); opacity: .9; }
+
+/* ---------- hitmarker ---------- */
+.hitmark { opacity: 0; }
+.hitmark.go { animation: hitPop .22s ease-out; }
+.hitmark.kill.go { animation: hitPopKill .3s ease-out; }
+@keyframes hitPop { 0% { opacity: 1; transform: scale(.6) rotate(45deg); } 100% { opacity: 0; transform: scale(1.25) rotate(45deg); } }
+@keyframes hitPopKill { 0% { opacity: 1; transform: scale(.5) rotate(45deg); } 40% { opacity: 1; } 100% { opacity: 0; transform: scale(1.5) rotate(45deg); } }
+
+/* ---------- damage arrow ---------- */
+.dmg-arrow { opacity: 0; }
+.dmg-arrow.show { animation: dmgArrow .8s ease-out forwards; }
+@keyframes dmgArrow { 0% { opacity: .95; } 70% { opacity: .55; } 100% { opacity: 0; } }
+
+/* ---------- vignette ---------- */
+.vignette {
+  background: radial-gradient(ellipse at center, transparent 42%, rgba(200,20,10,.55) 100%);
+  opacity: 0; transition: opacity .45s ease;
+  pointer-events: none;
+}
+.lowhp-pulse { animation: lowHp 1.1s ease-in-out infinite; }
+@keyframes lowHp {
+  0%, 100% { box-shadow: inset 0 0 90px rgba(200,20,10,.25); }
+  50% { box-shadow: inset 0 0 150px rgba(220,30,15,.6); }
+}
+
+/* ---------- banner ---------- */
+.banner-in { animation: bannerIn .45s cubic-bezier(.2,1.4,.4,1) both; }
+@keyframes bannerIn {
+  0% { opacity: 0; transform: scale(1.6); letter-spacing: .5em; filter: blur(6px); }
+  100% { opacity: 1; transform: scale(1); letter-spacing: .14em; filter: blur(0); }
+}
+.banner-sub-in { animation: bannerSub .5s .12s ease both; }
+@keyframes bannerSub { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: none; } }
+
+/* ---------- kill feed ---------- */
+.feed-in { animation: feedIn .25s ease both; }
+@keyframes feedIn { 0% { opacity: 0; transform: translateX(24px); } 100% { opacity: 1; transform: none; } }
+
+/* ---------- reload / misc ---------- */
+.blink-fast { animation: blinkFast .5s steps(2) infinite; }
+@keyframes blinkFast { 50% { opacity: .25; } }
+.radar-sweep { animation: radarPing 2.4s ease-out infinite; }
+@keyframes radarPing { 0% { transform: scale(.2); opacity: .5; } 100% { transform: scale(1); opacity: 0; } }
+
+::selection { background: rgba(242,163,60,.4); }
